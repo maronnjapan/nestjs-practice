@@ -2,11 +2,17 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type App2Model {
+  id2: Float!
+  name2: String!
+}
+
 type AppModel {
   id: Float!
   name: String!
+  files(modelName: String!, modelType: String!): App2Model
 }
 
 type Query {
-  apps: AppModel!
+  apps(skip: Int!, take: Int!): [AppModel!]
 }

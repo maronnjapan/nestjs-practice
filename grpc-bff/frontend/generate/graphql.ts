@@ -1,4 +1,5 @@
-import gql from 'graphql-tag';
+/* eslint-disable */
+import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/core';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
@@ -23,5 +24,19 @@ export type AppModel = {
 
 export type Query = {
   __typename?: 'Query';
-  apps: AppModel;
+  apps: Array<AppModel>;
 };
+
+
+export type QueryAppsArgs = {
+  skip: Scalars['Int']['input'];
+  take?: Scalars['Int']['input'];
+};
+
+export type HerosQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+export type HerosQuery = { __typename?: 'Query', apps: Array<{ __typename?: 'AppModel', id: number, name: string }> };
+
+
+export const HerosDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"heros"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"apps"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"skip"},"value":{"kind":"IntValue","value":"2"}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}}]}}]}}]} as unknown as DocumentNode<HerosQuery, HerosQueryVariables>;

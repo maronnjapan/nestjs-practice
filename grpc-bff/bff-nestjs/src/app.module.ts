@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { HttpModule } from '@nestjs/axios';
 import { AppService } from './app.service';
 import { ClientsModule, Transport } from '@nestjs/microservices';
 import { HERO_PACKAGE_NAME } from './hero/hero';
 import * as path from 'path';
 import { AppResolver } from './app.resolver';
+import { AppController } from './app.controller';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 
@@ -24,10 +24,10 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: path.join(process.cwd(), "src/schema.gql"),
-      sortSchema: true,
     }),
+
   ],
-  // controllers: [AppController],
+  controllers: [AppController],
   providers: [AppService, AppResolver],
 })
 export class AppModule { }
