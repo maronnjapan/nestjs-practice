@@ -1,0 +1,12 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AppModel {
+  id: Float!
+  name: String!
+}
+
+type Query {
+  apps: AppModel!
+}

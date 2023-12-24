@@ -2,6 +2,8 @@ FROM mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye
 
 RUN npm i -g @nestjs/cli
 
+RUN curl -OL https://github.com/ktr0731/evans/releases/download/v0.10.11/evans_linux_amd64.tar.gz && tar -zxvf evans_linux_amd64.tar.gz && sudo mv evans /usr/bin
+
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
